@@ -1,7 +1,10 @@
+import Body from "./Components/Body"
 
 const App = () => {
   return (
-    <div className="font-SegoeBold text-3xl bg-red-300">App</div>
+    <div className="w-[147px] h-[39px]">
+      <Body/>
+    </div>
   )
 }
 
