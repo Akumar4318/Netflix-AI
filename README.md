@@ -38,3 +38,6 @@ Features
 
      -Movie Suggestion
 
+
+
+<IoEyeOff className="text-white/90 absolute right-2 text-[2rem]" />

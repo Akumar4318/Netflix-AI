@@ -1,8 +1,17 @@
 import React, { useState } from "react";
 import Header from "./Header";
-
+import { IoEye } from "react-icons/io5";
+import { IoEyeOff } from "react-icons/io5";
 const Login = () => {
   const [isSignIn, setSignIn] = useState(true);
+
+  const [isShow, setShow] = useState(false);
+
+  function ShowHandler() {
+    setShow(!isShow);
+    console.log(isShow);
+  }
+
   // Add form data state
   const [formData, setFormData] = useState({
     firstName: "",
@@ -93,8 +102,6 @@ const Login = () => {
             />
           )}
 
-         
-
           <input
             type="email"
             name="email"
@@ -104,27 +111,60 @@ const Login = () => {
             className="w-full h-12 px-4 rounded-md border bg-black/40 text-white focus:outline-none focus:border-white"
           />
 
-          <input
-            type="password"
-            name="password"
-            value={formData.password}
-            onChange={handleInputChange}
-            placeholder="Password"
-            className="w-full h-12 px-4 rounded-md border bg-black/40 text-white focus:outline-none focus:border-white"
-          />
-
-          {!isSignIn && (
+          <div className="flex items-center relative">
             <input
-              type="password"
-              name="confirmPassword"
-              value={formData.confirmPassword}
+              type={isShow ? "text" : "Password"}
+              name="password"
+              value={formData.password}
               onChange={handleInputChange}
-              placeholder="Confirm Password"
+              placeholder="Password"
               className="w-full h-12 px-4 rounded-md border bg-black/40 text-white focus:outline-none focus:border-white"
             />
-          )}
+            <IoEye
+              className=" text-white/90  absolute right-1 text-[2rem] cursor-pointer"
+              onClick={ShowHandler}
+            />
 
-           {!isSignIn && (
+            <IoEyeOff
+              className={` text-white/90  absolute right-1 text-[2rem] cursor-pointer ${
+                isShow ? "hidden" : "block"
+              } `}
+              onClick={ShowHandler}
+            />
+          </div>
+
+          <div className="flex items-center relative">
+            {!isSignIn && (
+              <input
+                type={isShow ? "text" : "Password"}
+                name="confirmPassword"
+                value={formData.confirmPassword}
+                onChange={handleInputChange}
+                placeholder="Confirm Password"
+                className="w-full h-12 px-4 rounded-md border bg-black/40 text-white focus:outline-none focus:border-white"
+              />
+            )}
+
+            {
+                !isSignIn && (
+                    <div>
+                        <IoEye
+              className=" text-white/90  absolute right-1 top-1 text-[2rem] cursor-pointer"
+              onClick={ShowHandler}
+            />
+
+            <IoEyeOff
+              className={` text-white/90  absolute right-1 top-1 text-[2rem] cursor-pointer ${
+                isShow ? "hidden" : "block"
+              } `}
+              onClick={ShowHandler}
+            />
+                    </div>
+                )
+            }
+          </div>
+
+          {!isSignIn && (
             <div className="flex flex-col gap-1">
               <label className="text-gray-400 text-sm">Date of Birth</label>
               <input
