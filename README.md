@@ -5,7 +5,6 @@ Description:
 
 This project involves creating a feature-rich video streaming platform inspired by popular platforms like Netflix. The platform offers an intuitive and user-friendly interface for browsing, watching, and managing video content. What sets this platform apart is its integration of AI-powered features, leveraging the ChatGPT API to enhance user search experiences.
 
-
 ...Start:-
 
 -Create React App
@@ -15,6 +14,10 @@ This project involves creating a feature-rich video streaming platform inspired 
 -Added React-Router-dom
 
 -Added React-icons
+-signUp form 
+-Login Form
+-form validation
+-useRef hook
 
 
 
@@ -40,4 +43,3 @@ Features
 
 
 
-<IoEyeOff className="text-white/90 absolute right-2 text-[2rem]" />

@@ -1,15 +1,37 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Header from "./Header";
 import { IoEye } from "react-icons/io5";
 import { IoEyeOff } from "react-icons/io5";
+import { checkValidData } from "../Utils/Validation";
+import { toast } from "react-toastify";
+
+
+
 const Login = () => {
   const [isSignIn, setSignIn] = useState(true);
 
   const [isShow, setShow] = useState(false);
 
+  const[errorMessage,setErrorMessage]=useState(null)
+
+const email=useRef(null)
+const password=useRef(null)
+
+
   function ShowHandler() {
     setShow(!isShow);
     console.log(isShow);
+  }
+
+
+  const handelButtonclick=()=>{
+
+    
+    //Validate funtion
+    checkValidData(email.current.value,password.current.value)
+    const message=checkValidData(email.current.value,password.current.value);
+   setErrorMessage(message)
+   toast.error(message)
   }
 
   // Add form data state
@@ -82,6 +104,7 @@ const Login = () => {
 
           {!isSignIn && (
             <input
+            
               type="text"
               name="firstName"
               value={formData.firstName}
@@ -103,6 +126,7 @@ const Login = () => {
           )}
 
           <input
+          ref={email}
             type="email"
             name="email"
             value={formData.email}
@@ -113,6 +137,7 @@ const Login = () => {
 
           <div className="flex items-center relative">
             <input
+            ref={password}
               type={isShow ? "text" : "Password"}
               name="password"
               value={formData.password}
@@ -180,7 +205,7 @@ const Login = () => {
           <button
             type="submit"
             className="bg-[#e50914] text-white font-semibold text-lg py-3 rounded-md hover:bg-[#f6121d]"
-          >
+         onClick={handelButtonclick} >
             {isSignIn ? "Sign In" : "Sign Up"}
           </button>
           <p className="text-center text-gray-400">OR</p>
