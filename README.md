@@ -40,6 +40,7 @@ Features
      -Search Bar
 
      -Movie Suggestion
+     
 
 
 
