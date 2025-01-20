@@ -1,40 +1,88 @@
-import  { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import Header from "./Header";
 import { IoEye } from "react-icons/io5";
 import { IoEyeOff } from "react-icons/io5";
 import { checkValidData } from "../Utils/Validation";
 import { toast } from "react-toastify";
-
-
-
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import {auth} from '../Utils/Firebase'
+import { signInWithEmailAndPassword } from "firebase/auth";
 const Login = () => {
   const [isSignIn, setSignIn] = useState(true);
 
   const [isShow, setShow] = useState(false);
 
-  const[errorMessage,setErrorMessage]=useState(null)
+  const [errorMessage, setErrorMessage] = useState(null);
 
-const email=useRef(null)
-const password=useRef(null)
-const firstName=useRef(null)
-const lastName=useRef(null)
-
+  const email = useRef(null);
+  const password = useRef(null);
+  const firstName = useRef(null);
+  const lastName = useRef(null);
+  
 
   function ShowHandler() {
     setShow(!isShow);
     console.log(isShow);
   }
 
+  const handelButtonclick = () => {
 
-  const handelButtonclick=()=>{
-
+    console.log(email.current.value +' '+ password.current.value)
     
     //Validate funtion
-    checkValidData(email.current.value,password.current.value,firstName.current.value,lastName.current.value)
-    const message=checkValidData(email.current.value,password.current.value,firstName.current.value,lastName.current.value);
-   setErrorMessage(message)
-   toast.error(message)
-  }
+    checkValidData(
+      email.current.value,
+      password.current.value,
+      // firstName.current.value,
+      // lastName.current.value
+      
+    );
+    const message = checkValidData(
+      email.current.value,
+      password.current.value,
+      //  
+      
+    );
+    setErrorMessage(message);
+    toast.error(message);
+
+    if (message) return;
+
+    //sign In and Sign Up Logic
+
+    if (!isSignIn) {
+      //sign up login
+     
+      createUserWithEmailAndPassword(auth, email.current.value, password.current.value)
+        .then((userCredential) => {
+          // Signed up
+          const user = userCredential.user;
+          console.log(user)
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          toast.warning(errorMessage+ " "+errorCode)
+          // ..
+        });
+    } else {
+      //sign in logic
+
+      signInWithEmailAndPassword(auth, email.current.value, password.current.value)
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    console.log(user)
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    toast.error(errorCode+" "+errorMessage)
+  });
+    }
+  };
 
   // Add form data state
   const [formData, setFormData] = useState({
@@ -127,38 +175,34 @@ const lastName=useRef(null)
               className="w-full h-12 px-4 rounded-md border bg-black/40 text-white focus:outline-none focus:border-white"
             />
           )}
-          
 
-          {
-            isSignIn && (
-              <input
-          ref={email}
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleInputChange}
-            placeholder="Email or mobile Number"
-            className="w-full h-12 px-4 rounded-md border bg-black/40 text-white focus:outline-none focus:border-white"
-          />)
-          }
+          {isSignIn && (
+            <input
+              ref={email}
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleInputChange}
+              placeholder="Email or mobile Number"
+              className="w-full h-12 px-4 rounded-md border bg-black/40 text-white focus:outline-none focus:border-white"
+            />
+          )}
 
-          {
-            !isSignIn && (
-              <input
-          ref={email}
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleInputChange}
-            placeholder="Enter your Email"
-            className="w-full h-12 px-4 rounded-md border bg-black/40 text-white focus:outline-none focus:border-white"
-          />
-            )
-          }
+          {!isSignIn && (
+            <input
+              ref={email}
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleInputChange}
+              placeholder="Enter your Email"
+              className="w-full h-12 px-4 rounded-md border bg-black/40 text-white focus:outline-none focus:border-white"
+            />
+          )}
 
           <div className="flex items-center relative">
             <input
-            ref={password}
+              ref={password}
               type={isShow ? "text" : "Password"}
               name="password"
               value={formData.password}
@@ -191,23 +235,21 @@ const lastName=useRef(null)
               />
             )}
 
-            {
-                !isSignIn && (
-                    <div>
-                        <IoEye
-              className=" text-white/90  absolute right-1 top-1 text-[2rem] cursor-pointer"
-              onClick={ShowHandler}
-            />
+            {!isSignIn && (
+              <div>
+                <IoEye
+                  className=" text-white/90  absolute right-1 top-1 text-[2rem] cursor-pointer"
+                  onClick={ShowHandler}
+                />
 
-            <IoEyeOff
-              className={` text-white/90  absolute right-1 top-1 text-[2rem] cursor-pointer ${
-                isShow ? "hidden" : "block"
-              } `}
-              onClick={ShowHandler}
-            />
-                    </div>
-                )
-            }
+                <IoEyeOff
+                  className={` text-white/90  absolute right-1 top-1 text-[2rem] cursor-pointer ${
+                    isShow ? "hidden" : "block"
+                  } `}
+                  onClick={ShowHandler}
+                />
+              </div>
+            )}
           </div>
 
           {!isSignIn && (
@@ -226,7 +268,8 @@ const lastName=useRef(null)
           <button
             type="submit"
             className="bg-[#e50914] text-white font-semibold text-lg py-3 rounded-md hover:bg-[#f6121d]"
-         onClick={handelButtonclick} >
+            onClick={handelButtonclick}
+          >
             {isSignIn ? "Sign In" : "Sign Up"}
           </button>
           <p className="text-center text-gray-400">OR</p>
