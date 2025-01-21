@@ -62,7 +62,7 @@ const Login = () => {
           }).then(() => {
             const {uid, email, displayName, photoURL} = auth.currentUser;
             dispatch(addUser({uid, email, displayName, photoURL}));
-            navigate('/browse');
+            // navigate('/browse');
           }).catch((error) => {
             toast.error(error.message);
           });

@@ -48,11 +48,13 @@ const Header = () => {
     if (user) {
      
       const {uid,email,displayName,photoURL} = user;
-      dispatch(addUser({uid:uid,email:email,displayName:displayName,photoURL:photoURL}))
+      dispatch(addUser({uid:uid,email:email,displayName:displayName,photoURL:photoURL}));
+      navigate('/browse')
     
      
     } else {
      dispatch(removeUser())
+     navigate('/')
      
     }
   });
