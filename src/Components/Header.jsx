@@ -13,12 +13,17 @@ import { auth } from '../Utils/Firebase';
 import { signOut } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { useEffect } from "react"
+import { onAuthStateChanged } from "firebase/auth";
+import { useDispatch } from "react-redux"
+import { addUser, removeUser } from "../Features/UserSlice"
 
 const Header = () => {
 
  const[isclicked,setIsClicked]=useState(false)
  const navigate=useNavigate()
  const user=useSelector(store=>store.user)
+ const dispatch=useDispatch();
 
  function changeHandler(){
    setIsClicked(!isclicked)
@@ -37,6 +42,22 @@ const Header = () => {
 
 });
  }
+
+ useEffect(()=>{
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+     
+      const {uid,email,displayName,photoURL} = user;
+      dispatch(addUser({uid:uid,email:email,displayName:displayName,photoURL:photoURL}))
+    
+     
+    } else {
+     dispatch(removeUser())
+     
+    }
+  });
+
+},[])
 
   return (
    <div className='relative'>
