@@ -71,14 +71,21 @@ const Login = () => {
           toast.warning(error.message);
         });
     } else {
-      // Sign in logic
+      //sign in logic
+
       signInWithEmailAndPassword(auth, email.current.value, password.current.value)
-        .then((userCredential) => {
-          navigate('/browse');
-        })
-        .catch((error) => {
-          toast.error(error.message);
-        });
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    navigate('/browse')
+    console.log(user)
+    // ...
+  })
+  .catch((error) => {
+    // const errorCode = error.code;
+    const errorMessage = error.message;
+    toast.error(errorMessage)
+  });
     }
   };
 
