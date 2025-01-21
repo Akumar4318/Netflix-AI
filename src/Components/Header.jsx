@@ -12,10 +12,13 @@ import { IoMdArrowDropup } from "react-icons/io";
 import { auth } from '../Utils/Firebase';
 import { signOut } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+
 const Header = () => {
 
  const[isclicked,setIsClicked]=useState(false)
  const navigate=useNavigate()
+ const user=useSelector(store=>store.user)
 
  function changeHandler(){
    setIsClicked(!isclicked)
@@ -43,7 +46,7 @@ const Header = () => {
       <img src={logo} alt="logo" className='w-[147px] h-[40px] ml-4 my-2 ' />
       </div>
 
-      <div className='flex  items-center justify-center gap-x-5 mr-7'>
+      {user && <div className='flex  items-center justify-center gap-x-5 mr-7'>
       <IoSearch className='text-[2rem] text-white' />
     <MdOutlineNotifications className='text-[2rem] text-white'/>
 
@@ -54,7 +57,7 @@ const Header = () => {
 
     </div>
    
-      </div>
+      </div>}
          </div>
 
        
@@ -64,8 +67,8 @@ const Header = () => {
       isclicked && <div className='w-[230px] h-[300px] absolute top-24 mt-2 text-[1.2rem] left-[1320px] bg-black/90 rounded-lg flex flex-col gap-y-6 p-3 font-SegoeUI text-white cursor-pointer'>
 
       <div className='flex items-center mt-3 gap-x-3 font-bold'>
-        <img src={userlogo} className='w-[30px] h-[30px] '  alt="" />
-        <p>Abhishek</p>
+        <img src={user?.photourl} className='w-[30px] h-[30px] '  alt="" />
+        <p>{user?.displayName}</p>
       </div>
       <ul className='flex flex-col gap-y-2 '>
         <li className='flex items-center gap-x-3   hover:underline  duration-800 transition-all ' > <FaUsersGear /> Manage Profiles</li>
