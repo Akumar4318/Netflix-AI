@@ -8,16 +8,18 @@ This project involves creating a feature-rich video streaming platform inspired 
 ...Start:-
 
 -Create React App
-
 -Configured tailwind css
-
 -Added React-Router-dom
-
 -Added React-icons
 -signUp form 
 -Login Form
 -form validation
 -useRef hook
+-firebase setup
+-deploying out app to production 
+-create sign up user Account
+-Implement sigh in user APi
+-Created Redux store with userSlice
 
 
 

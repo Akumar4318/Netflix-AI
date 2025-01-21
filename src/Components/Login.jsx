@@ -7,12 +7,15 @@ import { toast } from "react-toastify";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import {auth} from '../Utils/Firebase'
 import { signInWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+import {updateProfile } from "firebase/auth";
 const Login = () => {
   const [isSignIn, setSignIn] = useState(true);
 
   const [isShow, setShow] = useState(false);
 
   const [errorMessage, setErrorMessage] = useState(null);
+  const navigate=useNavigate()
 
   const email = useRef(null);
   const password = useRef(null);
@@ -33,7 +36,7 @@ const Login = () => {
     checkValidData(
       email.current.value,
       password.current.value,
-      // firstName.current.value,
+      firstName.current.value,
       // lastName.current.value
       
     );
@@ -57,13 +60,22 @@ const Login = () => {
         .then((userCredential) => {
           // Signed up
           const user = userCredential.user;
-          console.log(user)
-          // ...
+          updateProfile(auth.currentUser, {
+            displayName: firstName.current.value, photoURL: "https://example.com/jane-q-user/profile.jpg"
+          }).then(() => {
+            navigate('/browse')
+            console.log(user)
+          }).catch((error) => {
+          toast.error(error)
+          });
+         
+          
+        
         })
         .catch((error) => {
-          const errorCode = error.code;
+          // const errorCode = error.code;
           const errorMessage = error.message;
-          toast.warning(errorMessage+ " "+errorCode)
+          toast.warning(errorMessage)
           // ..
         });
     } else {
@@ -73,13 +85,14 @@ const Login = () => {
   .then((userCredential) => {
     // Signed in 
     const user = userCredential.user;
+    navigate('/browse')
     console.log(user)
     // ...
   })
   .catch((error) => {
-    const errorCode = error.code;
+    // const errorCode = error.code;
     const errorMessage = error.message;
-    toast.error(errorCode+" "+errorMessage)
+    toast.error(errorMessage)
   });
     }
   };
