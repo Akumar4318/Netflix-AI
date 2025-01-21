@@ -12,6 +12,8 @@ import {updateProfile } from "firebase/auth";
 import photourl from '../assets/Users/UserLogo.png'
 import { useDispatch } from "react-redux";
 import { addUser } from "../Features/UserSlice";
+import Loadder from "./Loadder";
+
 
 
 
@@ -28,6 +30,7 @@ const Login = () => {
   const lastName = useRef(null);
   const confirmPassword = useRef(null);
   const dateOfBirth = useRef(null);
+  const [isLoading,setIsLoading]=useState(true)
 
   function ShowHandler() {
     setShow(!isShow);

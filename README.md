@@ -20,6 +20,12 @@ This project involves creating a feature-rich video streaming platform inspired 
 -create sign up user Account
 -Implement sigh in user APi
 -Created Redux store with userSlice
+-implemented sign out
+-update profile
+-Bug Fix
+- sign up use displayName and profile picture update
+   - if the user is not logged in redirect me to the  login page and if  user loged in the it will not go to login page
+- Unsubscribed to the onAuthstatechanged callback
 
 
 

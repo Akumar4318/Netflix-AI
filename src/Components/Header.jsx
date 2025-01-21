@@ -19,6 +19,7 @@ import { useDispatch } from "react-redux"
 import { addUser, removeUser } from "../Features/UserSlice"
 
 const Header = () => {
+  
 
  const[isclicked,setIsClicked]=useState(false)
  const navigate=useNavigate()
@@ -44,7 +45,7 @@ const Header = () => {
  }
 
  useEffect(()=>{
-  onAuthStateChanged(auth, (user) => {
+ const unsubscribe= onAuthStateChanged(auth, (user) => {
     if (user) {
      
       const {uid,email,displayName,photoURL} = user;
@@ -58,6 +59,8 @@ const Header = () => {
      
     }
   });
+// unsubscribe when component will unmount
+  return ()=> unsubscribe();
 
 },[])
 
