@@ -24,3 +24,12 @@
   font-family:'Title Font';
   src: url(../src/assets/Fonts/TitleFont.ttf);
 }
+
+/* Global CSS file */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, and Edge */
+}

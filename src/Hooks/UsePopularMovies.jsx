@@ -1,25 +1,26 @@
+
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { API_OPTIONS } from "../Utils/Constant";
 import { toast } from "react-toastify";
-import { addNowPlayingMovies } from "../Features/MovieSlice";
+import {  addPopularMovies } from "../Features/MovieSlice";
 
-const useNowPlayingMovies = () => {
+
+const UsePopularMovies = () => {
   const [isLoading, setIsLoading] = useState(true);
   const dispatch = useDispatch();
 
-  const getNowPlayingMovies = async () => {
+  const getPopularMovies = async () => {
     setIsLoading(true);
 
     try {
       const response = await fetch(
-        "https://api.themoviedb.org/3/movie/now_playing?page=1",
+        "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1",
         API_OPTIONS
       );
       const data = await response.json();
-     
    
-      dispatch(addNowPlayingMovies(data.results));
+      dispatch(addPopularMovies(data.results));
     } catch (error) {
       toast.error(error.message);
     }
@@ -28,11 +29,11 @@ const useNowPlayingMovies = () => {
   };
 
   useEffect(() => {
-    getNowPlayingMovies();
+    getPopularMovies();
   }, []);
 
   return { isLoading };
 };
 
-export default useNowPlayingMovies;
+export default UsePopularMovies;
  

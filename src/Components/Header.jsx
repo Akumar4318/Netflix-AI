@@ -25,10 +25,15 @@ const Header = () => {
  const navigate=useNavigate()
  const user=useSelector(store=>store.user)
  const dispatch=useDispatch();
+ const[isClicked1,setIsClicked1]=useState(true)
 
  function changeHandler(){
    setIsClicked(!isclicked)
   
+ }
+
+ function showHandler(){
+  setIsClicked1(!isClicked1)
  }
 
  const handelSignout=()=>{
@@ -73,7 +78,10 @@ const Header = () => {
       </div>
 
       {user && <div className='flex  items-center justify-center gap-x-5 mr-7'>
-      <IoSearch className='text-[2rem] text-white' />
+      <div className='flex gap-2'>
+        <input type="text" placeholder='search you Favi' className={`rounded-md font-SegoeBold bg-red-500 bg-opacity-30 text-white px-4   transition-all duration-1000 ease-in-out transform ${isClicked1 ? ("-translate-x-full opacity-0"):("translate-x-0 opacity-100")}`}/>
+        <IoSearch className='text-[2rem] text-white cursor-pointer' onClick={showHandler} />
+      </div>
     <MdOutlineNotifications className='text-[2rem] text-white'/>
 
     <div className='flex items-center cursor-pointer hover:scale-105 'onClick={changeHandler}>

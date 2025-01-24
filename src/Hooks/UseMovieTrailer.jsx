@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { addtrailerVideo } from "../Features/MovieSlice";
+import {addtrailerVideo } from "../Features/MovieSlice";
 import { useEffect } from "react";
 import { API_OPTIONS } from "../Utils/Constant";
 
