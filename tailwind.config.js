@@ -9,7 +9,8 @@ export default {
       'SegoeUI':['Segoe UI'],
       'SegoeBold':['Segoe UI Bold'],
       'SegoeBolditalic':['Segoe UI Bold italic'],
-      'SegoeItalic':['Segoe UI Italic']
+      'SegoeItalic':['Segoe UI Italic'],
+      'TitleFont':['Title Font']
     }
    
   },

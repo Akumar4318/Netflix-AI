@@ -90,7 +90,7 @@ const Header = () => {
 
     </div>
     {
-      isclicked && <div className='w-[230px] h-[300px] absolute top-24 mt-2 text-[1.2rem] left-[1320px] bg-black/90 rounded-lg flex flex-col gap-y-6 p-3 font-SegoeUI text-white cursor-pointer'>
+      isclicked && <div className='z-50 w-[230px] h-[300px] absolute top-24 mt-2 text-[1.2rem] left-[1320px] bg-black/90 rounded-lg flex flex-col gap-y-6 p-3 font-SegoeUI text-white cursor-pointer'>
 
       <div className='flex items-center mt-3 gap-x-3 font-bold'>
         <img src={user?.photourl} className='w-[30px] h-[30px] '  alt="" />
