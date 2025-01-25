@@ -17,6 +17,8 @@ import { useEffect } from "react"
 import { onAuthStateChanged } from "firebase/auth";
 import { useDispatch } from "react-redux"
 import { addUser, removeUser } from "../Features/UserSlice"
+import AIsearch from '../assets/Users/Ai.png'
+import { toggleAISearchView } from '../Features/AISlice';
 
 const Header = () => {
   
@@ -27,6 +29,7 @@ const Header = () => {
  const dispatch=useDispatch();
  const[isClicked1,setIsClicked1]=useState(true)
 
+
  function changeHandler(){
    setIsClicked(!isclicked)
   
@@ -34,6 +37,11 @@ const Header = () => {
 
  function showHandler(){
   setIsClicked1(!isClicked1)
+ }
+
+ 
+ const HandelAISearch=()=>{
+  dispatch(toggleAISearchView())
  }
 
  const handelSignout=()=>{
@@ -72,7 +80,7 @@ const Header = () => {
   return (
    <div className='relative'>
      <div className='absolute z-10  bg-gradient-to-b from-black  '>
-         <div className=' mx-2  w-screen flex justify-between'>
+         <div className=' mx-2 font-SegoeUI  w-screen flex justify-between'>
       <div className='mx-32 my-6'>
       <img src={logo} alt="logo" className='w-[147px] h-[40px] ml-4 my-2 ' />
       </div>
@@ -83,9 +91,12 @@ const Header = () => {
         <IoSearch className='text-[2rem] text-white cursor-pointer' onClick={showHandler} />
       </div>
     <MdOutlineNotifications className='text-[2rem] text-white'/>
-
+    <button className='hover:scale-105  ' onClick={HandelAISearch}><img src={AIsearch} alt="" /></button>
     <div className='flex items-center cursor-pointer hover:scale-105 'onClick={changeHandler}>
+    
     <img src={userlogo} alt="" className='w-[50px] h-[50px] rounded-md' />
+
+    
 
 {isclicked ? (<IoMdArrowDropup className='text-[1.5rem] text-white' />):(<IoMdArrowDropdown className='text-[1.5rem] text-white'/>)}
 

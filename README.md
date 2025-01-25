@@ -32,7 +32,8 @@ This project involves creating a feature-rich video streaming platform inspired 
 - Retrieved trailer video data from the API.
 - Updated the store with trailer video information.
 - Embedded autoplaying, muted YouTube trailers in the app.
-- Added creative and visually appealing Tailwind CSS styles for a stunning design.
+- Added creative and visually appealing Tailwind CSS styles for a stunning design.//
+-Building secondary Card
 
 Features
 
