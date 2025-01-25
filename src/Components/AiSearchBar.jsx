@@ -5,6 +5,12 @@ import lang from '../Utils/LanguageConstant'
 import { SUPPORTED_LANGUAGES } from '../Utils/Constant'
 import { useDispatch, useSelector } from 'react-redux'
 import { changeLanguage } from '../Features/ConfigSlice'
+import { useRef } from 'react'
+
+import { toast } from 'react-toastify'
+import openai from '../Utils/OpenAI'
+
+
 
 const AiSearchBar = () => {
 const dispatch=useDispatch()
@@ -18,6 +24,29 @@ const dispatch=useDispatch()
     }
 
     const navigate=useNavigate()
+
+    const searchText=useRef(null)
+
+    const handelAisearchClick = async () => {
+        try {
+          console.log(searchText.current.value);
+      
+          const gptQuery =
+            'Act as a Movie Recommendation system and suggest some movies for the query ' +
+            searchText.current.value +
+            " only give me the name of 10 movies, comma-separated: Iron Man, Captain America, Superman, Spider-Man, Golmaal, Koi Mil Gaya, Shaktiman, Dhol, Run";
+      
+          const gptResults = await openai.chat.completions.create({
+            messages: [{ role: 'user', content: gptQuery }],
+            model: 'gpt-3.5-turbo', // Use a valid model
+          });
+      
+          console.log(gptResults.choices);
+        } catch (error) {
+          console.error('Error calling OpenAI API:', error.message);
+          toast.error('Error: ' + error.message);
+        }
+      };
   return (
     <div className="w-screen h-lvh bg-gradient-to-b from-black/50  p-4">
 
@@ -45,9 +74,11 @@ const dispatch=useDispatch()
 </select>
 
         <div className="flex  ">
-        <form action="" className="mt-[5%] flex justify-center gap-x-4 px-12   w-screen">
-            <input type="text" className="font-SegoeUI w-[40%] p-3 border border-red-500 rounded-md" placeholder={lang[langKey].aisearachHolder} />
-            <button className="px-6  rounded-lg font-SegoeBold text-white bg-[#f6121d]">{lang[langKey].search}</button>
+        <form action="" className="mt-[5%] flex justify-center gap-x-4 px-12   w-screen" onSubmit={(e)=>{
+            e.preventDefault()
+        }}>
+            <input ref={searchText} type="text" className="font-SegoeUI w-[40%] p-3 border border-red-500 rounded-md" placeholder={lang[langKey].aisearachHolder} />
+            <button onClick={handelAisearchClick} className="px-6  rounded-lg font-SegoeBold text-white bg-[#f6121d]">{lang[langKey].search}</button>
         </form>
         </div>
 

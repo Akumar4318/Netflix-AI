@@ -17,7 +17,7 @@ const UseDetails = () => {
         API_OPTIONS
       );
       let data = await response.json();
-      console.log(data);
+      
     //   dispatch(addMoviesDetails(data.results))
 
     } catch (error) {

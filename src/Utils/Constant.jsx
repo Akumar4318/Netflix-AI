@@ -10,6 +10,15 @@ export const API_OPTIONS = {
   export const IMG_CDN_URL='https://image.tmdb.org/t/p/w500/'
 
 
+ export const OPEN_AI_KEY='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'
+
+export const OPEN_deep_key='sk-fe025b765d6147989791199fcef5867a'
+
+
+
+
+
+
 
   
    export const SUPPORTED_LANGUAGES=[{
