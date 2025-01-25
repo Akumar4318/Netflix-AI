@@ -1,10 +1,11 @@
 
+import { useSelector } from "react-redux";
 import UseDetails from "../Hooks/UseDetails";
 import UseNowPlayingMovies from "../Hooks/UseNowPlayingMovies";
 import UsePopularMovies from "../Hooks/UsePopularMovies";
 import UseTopRatedMovies from "../Hooks/UseTopRatedMovies";
 import UseUpcomingMovies from "../Hooks/UseUpcomingMovies";
-import AiSearch from "./AiSearch";
+
 import Header from "./Header";
 import Loadder from "./Loadder";
 import MainContainer from "./MainContainer";
@@ -17,7 +18,7 @@ const Browse = () => {
   const{}=UseUpcomingMovies();
   const{}=UseTopRatedMovies();
   const{}=UseDetails();
- 
+//  const showAIsearch=useSelector(store=>store.ai.showAIsearch) 
 
   return (    
     <div>
@@ -29,7 +30,7 @@ const Browse = () => {
           <Header />
           <MainContainer/>
           <SecondaryContainer/>
-          <AiSearch/>
+       
 
          {/* 
               1-MainContainer

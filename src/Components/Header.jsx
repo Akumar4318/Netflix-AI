@@ -18,7 +18,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { useDispatch } from "react-redux"
 import { addUser, removeUser } from "../Features/UserSlice"
 import AIsearch from '../assets/Users/Ai.png'
-import { toggleAISearchView } from '../Features/AISlice';
+
 
 const Header = () => {
   
@@ -41,7 +41,8 @@ const Header = () => {
 
  
  const HandelAISearch=()=>{
-  dispatch(toggleAISearchView())
+  // dispatch(toggleAISearchView())
+  navigate('/aisearch')
  }
 
  const handelSignout=()=>{

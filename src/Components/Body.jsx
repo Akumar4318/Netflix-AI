@@ -3,6 +3,7 @@ import Browse from "./Browse"
 import Login from "./Login"
 
 import Error from "./Error"
+import AiSearch from "./AiSearch"
 const Body = () => {
 
  
@@ -17,6 +18,7 @@ const Body = () => {
             <Route path="/" element={<Login/>}> Login </Route>
             <Route path="/browse" element={<Browse/>}>Browse</Route>
             <Route path="/error" element={<Error/>}></Route>
+            <Route path="/aisearch" element={<AiSearch/>} ></Route>
 
        </Routes>
     </div>

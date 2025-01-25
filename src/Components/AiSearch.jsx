@@ -1,8 +1,18 @@
+import AImovieSuggestion from "./AImovieSuggestion"
+import AiSearchBar from "./AiSearchBar"
 
 
 const AiSearch = () => {
+
   return (
-    <div>AiSearch</div>
+    <div>
+       {/* aiSearchbar */}
+       {/* aiMovieSuggestion */}
+
+       <AiSearchBar/>
+       <AImovieSuggestion/>
+
+    </div>
   )
 }
 

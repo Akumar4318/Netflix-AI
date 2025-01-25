@@ -12,4 +12,25 @@ export const API_OPTIONS = {
 
 
   
-   
+   export const SUPPORTED_LANGUAGES=[{
+    identifier:"english",
+    name:'English',
+   },{
+    identifier:"hindi",
+    name:'Hindi',
+   },
+   {
+    identifier:"spanish",
+    name:'Spanish',
+   },{
+    identifier:"sanskrit",
+    name:'Sanskrit',
+   },
+   {
+    identifier:"japanese",
+    name:'Japanese',
+   },
+   {
+    identifier:"Chinese",
+    name:'chinese',
+   }]
