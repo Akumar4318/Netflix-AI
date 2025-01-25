@@ -57,4 +57,38 @@ export const API_OPTIONS = {
    {
     identifier:"chinese",
     name:'Chinese',
-   }]
+   },
+   {
+    identifier: "telugu",
+    name: "Telugu",
+  },
+  {
+    identifier: "punjabi",
+    name: "Punjabi",
+  },
+  {
+    identifier: "malayalam",
+    name: "Malayalam",
+  },
+  {
+    identifier: "assamese",
+    name: "Assamese",
+  },
+  {
+    identifier: "kashmiri",
+    name: "Kashmiri",
+  },
+  {
+    identifier: "maithili",
+    name: "Maithili",
+  },
+ 
+  {
+    identifier: "konkani",
+    name: "Konkani",
+  },
+  {
+    identifier: "bengali",
+    name: "Bengali",
+  },
+  ]

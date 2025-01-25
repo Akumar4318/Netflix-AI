@@ -47,6 +47,39 @@ const lang = {
     search: "ସନ୍ଧାନ",
     aisearachHolder: "ଆଜି ଆପଣ କେଉଁଠି ଦେଖିବାକୁ ଚାହାଁନ୍ତି",
   },
+  bengali: {
+    search: "খোঁজ",
+    aisearachHolder: "আজ আপনি কী দেখতে চান",
+  },
+  telugu: {
+    search: "వెతకండి",
+    aisearachHolder: "ఈ రోజు మీరు ఏమి చూడాలని కోరుకుంటున్నారు",
+  },
+  punjabi: {
+    search: "ਖੋਜ",
+    aisearachHolder: "ਅੱਜ ਤੁਸੀਂ ਕੀ ਦੇਖਣਾ ਚਾਹੁੰਦੇ ਹੋ",
+  },
+  malayalam: {
+    search: "തിരയുക",
+    aisearachHolder: "ഇന്നത്തെ ദിവസം നിങ്ങൾ എനിക്ക് എന്ത് കാണാൻ ആഗ്രഹിക്കുന്നു",
+  },
+  assamese: {
+    search: "অনুসন্ধান",
+    aisearachHolder: "আজ আপনি কি চাব পাৰে",
+  },
+  kashmiri: {
+    search: "تلاش کریں",
+    aisearachHolder: "آج آپ کیا دیکھنا چاہتے ہیں",
+  },
+  maithili: {
+    search: "खोज",
+    aisearachHolder: "आज अहाँ की देखय चाहैत छी",
+  },
+ 
+  konkani: {
+    search: "शोध",
+    aisearachHolder: "आज तुंय काय बघयाची इच्छा करपाचे",
+  },
 };
 
 export default lang;
