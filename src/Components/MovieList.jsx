@@ -9,7 +9,7 @@ import MovieCard from "./MovieCard"; // Your MovieCard component
 const MovieList = ({ title, movies }) => {
   // Settings for the carousel
   const settings = {
-    infinite: true,        // Loop the carousel
+    infinite: false,        // Loop the carousel
     slidesToShow: 7,       // Show 1 card at a time
     slidesToScroll: 1,     // Scroll 1 card at a time
     speed: 500,            // Transition speed (in ms)

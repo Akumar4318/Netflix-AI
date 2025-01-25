@@ -8,9 +8,10 @@ const AiSearch = () => {
     <div>
        {/* aiSearchbar */}
        {/* aiMovieSuggestion */}
-
+     
        <AiSearchBar/>
        <AImovieSuggestion/>
+      
 
     </div>
   )
