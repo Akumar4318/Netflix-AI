@@ -31,6 +31,30 @@ export const API_OPTIONS = {
     name:'Japanese',
    },
    {
-    identifier:"Chinese",
-    name:'chinese',
+    identifier: "gujarati",
+    name: "Gujarati",
+  },
+  {
+    identifier: "kannada",
+    name: "Kannada",
+  },
+  {
+    identifier: "tamil",
+    name: "Tamil",
+  },
+  {
+    identifier: "marathi",
+    name: "Marathi",
+  },
+  {
+    identifier: "urdu",
+    name: "Urdu",
+  },
+  {
+    identifier: "oriya",
+    name: "Oriya",
+  },
+   {
+    identifier:"chinese",
+    name:'Chinese',
    }]

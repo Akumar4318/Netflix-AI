@@ -23,6 +23,30 @@ const lang = {
     search: "検索",
     aisearachHolder: "今日は何を見たいですか",
   },
+  gujarati: {
+    search: "શોધો",
+    aisearachHolder: "આજે તમે શું જોવા માંગો છો",
+  },
+  kannada: {
+    search: "ಹುಡುಕು",
+    aisearachHolder: "ನೀವು ಇವತ್ತೆ ಏನು ನೋಡಿ ಹಾರೈಸುತ್ತೀರಿ",
+  },
+  tamil: {
+    search: "தேடல்",
+    aisearachHolder: "இந்த நாளில் நீங்கள் என்ன பார்க்க விரும்புகிறீர்கள்",
+  },
+  marathi: {
+    search: "शोधा",
+    aisearachHolder: "आज तुम्हाला काय पाहायचं आहे",
+  },
+  urdu: {
+    search: "تلاش کریں",
+    aisearachHolder: "آج آپ کیا دیکھنا چاہیں گے",
+  },
+  oriya: {
+    search: "ସନ୍ଧାନ",
+    aisearachHolder: "ଆଜି ଆପଣ କେଉଁଠି ଦେଖିବାକୁ ଚାହାଁନ୍ତି",
+  },
 };
 
 export default lang;
