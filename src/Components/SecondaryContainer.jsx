@@ -9,7 +9,7 @@ const SecondaryContainer = () => {
   return (
 
 
-   <div className="-mt-20">
+   <div className="-mt-20 pt-2">
     {/* moviList-Popular
         movielIst-NowPlaying
         movielist-Horror 
