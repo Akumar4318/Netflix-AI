@@ -20,12 +20,12 @@ const MovieList = ({ title, movies }) => {
   return (
     <div className="relative w-screen">
       {/* Title Section */}
-      <h1 className="bg-black text-white pl-12  font-SegoeBold p-4 text-[1.4rem]">
+      <h1 className="bg-black opacity-90 text-white pl-12  font-SegoeBold p-4 text-[1.4rem]">
         {title}
       </h1>
 
       {/* Carousel Section */}
-      <div className="bg-black px-10 py-3">
+      <div className="bg-black opacity-90 px-10 py-3">
         <Slider {...settings}>
           {movies && movies.map((item) => (
             <MovieCard key={item.id} posterPath={item.poster_path} />

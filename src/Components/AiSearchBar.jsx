@@ -72,21 +72,25 @@ const AiSearchBar = () => {
     <div className="w-screen h-lvh bg-gradient-to-b from-black/50  p-4">
       <img src={backimage} className="absolute  -z-10 scale-125" alt="" />
 
-      <div className="cursor-pointer  w-[10%] p-2 mt-[2%] ml-[7%]">
-        <img
-          src={logo}
-          alt=""
-          className="w-[147px] h-[40px]    "
-          onClick={() => {
-            navigate("/");
-          }}
-        />
-      </div>
+      <div className="cursor-pointer w-[10%] p-2 mt-[2%] ml-[7%]">
+  <img
+    src={logo}
+    alt=""
+    className="w-[147px] h-[40px]"
+    onClick={() => {
+      navigate("/");
+      dispatch(addAIMovieResults({ movieNames: null, movieResults: null }));
+    }}
+  />
+</div>
 
-      <div
-        className=" w-fit relative left-[83.3%] -top-11 h-4 cursor-pointer"
-        onClick={() => navigate("/")}
-      >
+<div
+  className="w-fit relative left-[83.3%] -top-11 h-4 cursor-pointer"
+  onClick={() => {
+    navigate("/");
+    dispatch(addAIMovieResults({ movieNames: null, movieResults: null }));
+  }}
+>
         <img
           src="https://fontmeme.com/permalink/250125/de30b26cb20a7e626f8e0f01d229eb03.png"
           className=""
