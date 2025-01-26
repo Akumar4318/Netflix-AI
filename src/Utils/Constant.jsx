@@ -1,21 +1,25 @@
+const opanAIkey = import.meta.env.VITE_OPENAI_API_KEY;
+const tmdbkey = import.meta.env.VITE_TMDB_API_KEY;
+
 export const API_OPTIONS = {
-    method: 'GET',
-    headers: {
-      accept: 'application/json',
-      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5YTM1MGU1MDlmMmY1M2JhOTRlNzAyOTYxZDFlMGI4ZCIsIm5iZiI6MTczNzQ2MjY1OC42MjcsInN1YiI6IjY3OGY5MzgyNzcxOGQxZTg5OGFhYjFmNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Qyb2S3QAfERSBGO71a_UY7nGAtPBTnvpZ4KdJgX4KN4'
-    }
-  };
+  method: 'GET',
+  headers: {
+    accept: 'application/json',
+    Authorization: `Bearer ${tmdbkey}`, // Added space after 'Bearer'
+  },
+};
+
 
 
   export const IMG_CDN_URL='https://image.tmdb.org/t/p/w500/'
 
 
- export const OPEN_AI_KEY='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'
+ 
 
 export const OPEN_deep_key='sk-fe025b765d6147989791199fcef5867a'
 
 
-
+export const OPENAI_KEY=opanAIkey;
 
 
 
