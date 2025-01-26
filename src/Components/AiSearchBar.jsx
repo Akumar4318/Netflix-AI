@@ -53,12 +53,12 @@ const AiSearchBar = () => {
       const response = await model.generateContent(query);
       const gptMovies =
         response.response?.candidates[0]?.content?.parts[0]?.text.split(",");
-      console.log(gptMovies);
+    
 
       const PromiseArray = gptMovies.map((movie) => searchMovieTMDB(movie));
 
       const TMDBresults = await Promise.all(PromiseArray);
-      console.log(TMDBresults);
+
 
       dispatch(
         addAIMovieResults({ movieNames: gptMovies, movieResults: TMDBresults })

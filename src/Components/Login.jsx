@@ -81,7 +81,7 @@ const Login = () => {
     // Signed in 
     const user = userCredential.user;
     navigate('/browse')
-    console.log(user)
+ 
     // ...
   })
   .catch((error) => {
