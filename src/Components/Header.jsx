@@ -92,7 +92,7 @@ const Header = () => {
         <IoSearch className='text-[2rem] text-white cursor-pointer' onClick={showHandler} />
       </div>
     <MdOutlineNotifications className='text-[2rem] text-white'/>
-    <button className='hover:scale-105  ' onClick={HandelAISearch}><img src={AIsearch} alt="" /></button>
+    <button className='hover:scale-105 w-[6rem] p-1 ' onClick={HandelAISearch}><img src={AIsearch} alt="" /></button>
     <div className='flex items-center cursor-pointer hover:scale-105 'onClick={changeHandler}>
     
     <img src={userlogo} alt="" className='w-[50px] h-[50px] rounded-md' />

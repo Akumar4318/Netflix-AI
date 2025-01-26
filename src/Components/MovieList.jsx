@@ -11,7 +11,7 @@ const MovieList = ({ title, movies }) => {
   const settings = {
     infinite: false,
     slidesToShow: 6, // Default for large screens
-    slidesToScroll: 2,
+    slidesToScroll: 1,
     speed: 700,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,

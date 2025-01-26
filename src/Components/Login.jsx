@@ -98,133 +98,128 @@ const Login = () => {
 
   return (
     <div className="w-screen h-screen relative">
-      <Header />
-      {/* Background Image */}
-      <div className="absolute top-0 left-0 w-full h-full -z-10">
-        <img
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/e3e9c31f-aa15-4a8f-8059-04f01e6b8629/web/IN-en-20250113-TRIFECTA-perspective_febfa442-23d9-45f3-937e-72f8b971f7a9_small.jpg"
-          alt="Background"
-          className="w-full h-full object-cover"
-        />
-      </div>
-
-      {/* Login Form */}
-      <div className=" bg-black/80 absolute inset-x-0 mx-auto mt-16 p-8 w-[35%] max-w-md rounded-lg">
-        <form onSubmit={handelButtonclick} className="flex flex-col gap-y-6">
-          <h1 className="text-white font-bold text-3xl">
-            {isSignIn ? "Sign In" : "Sign Up"}
-          </h1>
-
-          {!isSignIn && (
-            <input
-              ref={firstName}
-              type="text"
-              name="firstName"
-              placeholder="First Name"
-              className="w-full h-12 px-4 rounded-md border bg-black/40 text-white focus:outline-none focus:border-white"
-            />
-          )}
-
-          {!isSignIn && (
-            <input
-              ref={lastName}
-              type="text"
-              name="lastName"
-              placeholder="Last Name"
-              className="w-full h-12 px-4 rounded-md border bg-black/40 text-white focus:outline-none focus:border-white"
-            />
-          )}
-
+    <Header />
+    {/* Background Image */}
+    <div className="absolute top-0 left-0 w-full h-full -z-10">
+      <img
+        src="https://assets.nflxext.com/ffe/siteui/vlv3/e3e9c31f-aa15-4a8f-8059-04f01e6b8629/web/IN-en-20250113-TRIFECTA-perspective_febfa442-23d9-45f3-937e-72f8b971f7a9_small.jpg"
+        alt="Background"
+        className="w-full h-full object-cover"
+      />
+    </div>
+  
+    {/* Login Form */}
+    <div className="bg-black/80 absolute inset-x-0 mx-auto mt-16 p-8 w-[80%] max-w-md sm:max-w-lg md:w-[calc(100%-300px)] lg:max-w-lg rounded-lg">
+      <form onSubmit={handelButtonclick} className="flex flex-col gap-y-6">
+        <h1 className="text-white font-bold text-3xl sm:text-4xl">{isSignIn ? "Sign In" : "Sign Up"}</h1>
+  
+        {!isSignIn && (
           <input
-            ref={email}
-            type="email"
-            name="email"
-            placeholder={isSignIn ? "Email or mobile Number" : "Enter your Email"}
+            ref={firstName}
+            type="text"
+            name="firstName"
+            placeholder="First Name"
             className="w-full h-12 px-4 rounded-md border bg-black/40 text-white focus:outline-none focus:border-white"
           />
-
+        )}
+  
+        {!isSignIn && (
+          <input
+            ref={lastName}
+            type="text"
+            name="lastName"
+            placeholder="Last Name"
+            className="w-full h-12 px-4 rounded-md border bg-black/40 text-white focus:outline-none focus:border-white"
+          />
+        )}
+  
+        <input
+          ref={email}
+          type="email"
+          name="email"
+          placeholder={isSignIn ? "Email or mobile Number" : "Enter your Email"}
+          className="w-full h-12 px-4 rounded-md border bg-black/40 text-white focus:outline-none focus:border-white"
+        />
+  
+        <div className="flex items-center relative">
+          <input
+            ref={password}
+            type={isShow ? "text" : "password"}
+            name="password"
+            placeholder="Password"
+            className="w-full h-12 px-4 rounded-md border bg-black/40 text-white focus:outline-none focus:border-white"
+          />
+          <IoEye
+            className="text-white/90 absolute right-1 text-[2rem] cursor-pointer"
+            onClick={ShowHandler}
+          />
+          <IoEyeOff
+            className={`text-white/90 absolute right-1 text-[2rem] cursor-pointer ${isShow ? "hidden" : "block"}`}
+            onClick={ShowHandler}
+          />
+        </div>
+  
+        {!isSignIn && (
           <div className="flex items-center relative">
             <input
-              ref={password}
+              ref={confirmPassword}
               type={isShow ? "text" : "password"}
-              name="password"
-              placeholder="Password"
+              name="confirmPassword"
+              placeholder="Confirm Password"
               className="w-full h-12 px-4 rounded-md border bg-black/40 text-white focus:outline-none focus:border-white"
             />
-            <IoEye
-              className="text-white/90 absolute right-1 text-[2rem] cursor-pointer"
-              onClick={ShowHandler}
-            />
-            <IoEyeOff
-              className={`text-white/90 absolute right-1 text-[2rem] cursor-pointer ${
-                isShow ? "hidden" : "block"
-              }`}
-              onClick={ShowHandler}
+            <div>
+              <IoEye
+                className="text-white/90 absolute right-1 top-1 text-[2rem] cursor-pointer"
+                onClick={ShowHandler}
+              />
+              <IoEyeOff
+                className={`text-white/90 absolute right-1 top-1 text-[2rem] cursor-pointer ${isShow ? "hidden" : "block"}`}
+                onClick={ShowHandler}
+              />
+            </div>
+          </div>
+        )}
+  
+        {!isSignIn && (
+          <div className="flex flex-col gap-1">
+            <label className="text-gray-400 text-sm">Date of Birth</label>
+            <input
+              ref={dateOfBirth}
+              type="date"
+              name="dateOfBirth"
+              className="w-full h-12 px-4 rounded-md border bg-black/40 text-white focus:outline-none focus:border-white"
             />
           </div>
-
-          {!isSignIn && (
-            <div className="flex items-center relative">
-              <input
-                ref={confirmPassword}
-                type={isShow ? "text" : "password"}
-                name="confirmPassword"
-                placeholder="Confirm Password"
-                className="w-full h-12 px-4 rounded-md border bg-black/40 text-white focus:outline-none focus:border-white"
-              />
-              <div>
-                <IoEye
-                  className="text-white/90 absolute right-1 top-1 text-[2rem] cursor-pointer"
-                  onClick={ShowHandler}
-                />
-                <IoEyeOff
-                  className={`text-white/90 absolute right-1 top-1 text-[2rem] cursor-pointer ${
-                    isShow ? "hidden" : "block"
-                  }`}
-                  onClick={ShowHandler}
-                />
-              </div>
-            </div>
-          )}
-
-          {!isSignIn && (
-            <div className="flex flex-col gap-1">
-              <label className="text-gray-400 text-sm">Date of Birth</label>
-              <input
-                ref={dateOfBirth}
-                type="date"
-                name="dateOfBirth"
-                className="w-full h-12 px-4 rounded-md border bg-black/40 text-white focus:outline-none focus:border-white"
-              />
-            </div>
-          )}
-
-          <button
-            type="submit"
-            className="bg-[#e50914] text-white font-semibold text-lg py-3 rounded-md hover:bg-[#f6121d]"
+        )}
+  
+        <button
+          type="submit"
+          className="bg-[#e50914] text-white font-semibold text-lg py-3 rounded-md hover:bg-[#f6121d]"
+        >
+          {isSignIn ? "Sign In" : "Sign Up"}
+        </button>
+        <p className="text-center text-gray-400">OR</p>
+        <button 
+          type="button" 
+          className="text-white bg-gray-700/70 font-medium py-3 rounded-md hover:opacity-80"
+        >
+          Use a Sign-in code
+        </button>
+  
+        <p className="text-white font-SegoeUI">
+          {isSignIn ? "New to Netflix ?" : "Already Registered"}{" "}
+          <span
+            className="font-SegoeBold cursor-pointer"
+            onClick={toggleHandler}
           >
-            {isSignIn ? "Sign In" : "Sign Up"}
-          </button>
-          <p className="text-center text-gray-400">OR</p>
-          <button 
-            type="button" 
-            className="text-white bg-gray-700/70 font-medium py-3 rounded-md hover:opacity-80"
-          >
-            Use a Sign-in code
-          </button>
-
-          <p className="text-white font-SegoeUI">
-            {isSignIn ? "New to Netflix ?" : "Already Registered"}{" "}
-            <span
-              className="font-SegoeBold cursor-pointer"
-              onClick={toggleHandler}
-            >
-              {isSignIn ? "Sign Up" : "Sign In Now"}
-            </span>
-          </p>
-        </form>
-      </div>
+            {isSignIn ? "Sign Up" : "Sign In Now"}
+          </span>
+        </p>
+      </form>
     </div>
+  </div>
+  
   );
 };
 
